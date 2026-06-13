@@ -2,7 +2,7 @@
 
 # ==========================================
 # Auto Setup Script for New Enigma2 Images (Smart Image Detection)
-# Developed by: MOHAMED_OS
+# Developed by: anow2008
 # ==========================================
 
 # دالة ذكية لتحميل وتشغيل الاسكربتات الخارجية مع تخطي أوامر الريستارت المفاجئة
