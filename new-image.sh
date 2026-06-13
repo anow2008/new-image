@@ -50,7 +50,6 @@ echo "●●●●●●●●●●●●●●●●●●●●●●●●�
 echo "————●●★::| (  astra-sm ) |::★●●————"
 opkg update
 opkg install astra-sm
-mkdir -p /etc/astra/scripts
 
 if [ "$IMG_TYPE" = "openatv" ]; then
     echo "★★★ تحميل الملف فى امر واحد ★★★"
@@ -133,7 +132,7 @@ echo "====== [22/22] Running Final Clean Script ======"
 run_safe_script "https://raw.githubusercontent.com/anow2008/clean/main/clean.sh"
 
 echo "================================================="
-echo "   All tasks completed successfully,anow2008!    "
+echo "   All tasks completed successfully, anow2008!    "
 echo "            Rebooting Enigma2 Now...             "
 echo "================================================="
 
