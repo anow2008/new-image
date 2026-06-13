@@ -107,9 +107,6 @@ run_safe_script "https://raw.githubusercontent.com/ciefp/CiefpsettingsPanel/main
 echo "====== [16/23] Installing Eliesat Panel ======"
 run_safe_script "https://raw.githubusercontent.com/eliesat/eliesatpanel/main/installer.sh"
 
-echo "====== [17/23] Installing E-Panel ======"
-run_safe_script "https://dreambox4u.com/emilnabil237/plugins/epanel/installer.sh"
-
 echo "====== [18/23] Installing Anow Panel ======"
 run_safe_script "https://raw.githubusercontent.com/anow2008/anow-panel/main/install.sh"
 
