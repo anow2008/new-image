@@ -122,8 +122,10 @@ echo "====== [20/22] Downloading AJPanel Menu Customization ======"
 rm -f /media/hdd/Ajpanel_Eliesatpanel/ajpanel_menu_Haitham.xml
 wget --no-check-certificate "https://gitlab.com/hmeng80/AjPanel/-/raw/main/ajpanel_menu_Haitham.xml?ref_type=heads" -O /media/hdd/Ajpanel_Eliesatpanel/ajpanel_menu_Haitham.xml
 
-echo "====== [21/22] Installing Ncam EMU & Configs & SoftCam ====="
+echo "====== [21/22] Installing Ncam & Oscam EMU & Configs & SoftCam ====="
 run_safe_script "https://raw.githubusercontent.com/biko-73/Ncam_EMU/main/installer.sh"
+# تم إضافة اسكربت الأوسكام هنا وتمريره عبر الدالة الآمنة لضمان عدم حدوث ريستارت فجائي
+run_safe_script "https://raw.githubusercontent.com/anow2008/cam-emu/main/oscam/2install.sh"
 run_safe_script "https://raw.githubusercontent.com/anow2008/conf/main/install/install.sh"
 mkdir -p /etc/tuxbox/config
 wget -O /etc/tuxbox/config/SoftCam.Key https://raw.githubusercontent.com/anow2008/softcam.key/main/softcam.key
