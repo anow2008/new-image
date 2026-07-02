@@ -2,7 +2,7 @@
 
 # ==========================================
 # Auto Setup Script for New Enigma2 Images (Smart Image Detection)
-# Developed by: anow2008
+# Developed by: anow2008 & Edited for Force Install wget
 # ==========================================
 
 # دالة ذكية لتحميل وتشغيل الاسكربتات الخارجية مع تخطي أوامر الريستارت المفاجئة
@@ -32,9 +32,11 @@ else
     IMG_TYPE="openatv" # افتراضي في حال لم يتعرف عليها
 fi
 
-echo "====== [1/24] Updating and Upgrading Feed ======"
-opkg update && opkg upgrade
-
+# التعديل الجديد: تحديث الفيد وتثبيت wget وحزم الأمان إجبارياً كأول خطوة وفصل الأوامر لضمان الاستمرارية
+echo "====== [1/24] Updating Feed & Installing Wget + Certificates ======"
+opkg update
+opkg install wget ca-certificates --force-depends
+opkg upgrade
 
 echo "————●●★::| ( تحميل اعدات للصورة ) |::★●●————"
 if [ "$IMG_TYPE" = "openatv" ]; then
@@ -130,7 +132,6 @@ wget --no-check-certificate "https://gitlab.com/hmeng80/AjPanel/-/raw/main/ajpan
 
 echo "====== [23/24] Installing Ncam & Oscam EMU & Configs & SoftCam ====="
 run_safe_script "https://raw.githubusercontent.com/biko-73/Ncam_EMU/main/installer.sh"
-# تم إضافة اسكربت الأوسكام هنا وتمريره عبر الدالة الآمنة لضمان عدم حدوث ريستارت فجائي
 run_safe_script "https://raw.githubusercontent.com/anow2008/cam-emu/main/oscam/2install.sh"
 run_safe_script "https://raw.githubusercontent.com/anow2008/conf/main/install/install.sh"
 mkdir -p /etc/tuxbox/config
