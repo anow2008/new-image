@@ -32,11 +32,12 @@ else
     IMG_TYPE="openatv" # افتراضي في حال لم يتعرف عليها
 fi
 
-# التعديل الجديد: تحديث الفيد وتثبيت wget وحزم الأمان إجبارياً كأول خطوة وفصل الأوامر لضمان الاستمرارية
-echo "====== [1/24] Updating Feed & Installing Wget + Certificates ======"
+# التعديل المطلوب: تحديث الفيد ثم تثبيت wget ثم curl كل واحدة بالترتيب وبأمر مستقل
+echo "====== [1/24] Updating Feed & Installing Base Tools ======"
 opkg update
-opkg install wget ca-certificates --force-depends
-opkg upgrade
+opkg install wget --force-depends
+opkg install curl --force-depends
+opkg install ca-certificates --force-depends
 
 echo "————●●★::| ( تحميل اعدات للصورة ) |::★●●————"
 if [ "$IMG_TYPE" = "openatv" ]; then
