@@ -23,6 +23,14 @@ run_safe_script() {
     rm -f /tmp/temp_install.sh
 }
 
+# إصلاح وإعادة تنشيط الشبكة أولاً لضمان وجود إتصال بالإنترنت
+echo "====== [Fixing Network Connection] ======"
+/etc/init.d/networking restart 2>/dev/null || systemctl restart networking 2>/dev/null
+ifconfig eth0 up 2>/dev/null
+ifconfig wlan0 up 2>/dev/null
+udhcpc -i eth0 -n -q 2>/dev/null || udhcpc -i wlan0 -n -q 2>/dev/null
+sleep 3
+
 # خطوة الفحص المبدئي لتحديد نوع الصورة في متغير واستخدامه بالأسفل
 if grep -q -i "openatv" /etc/image-version 2>/dev/null || grep -q -i "openatv" /etc/os-release 2>/dev/null; then
     IMG_TYPE="openatv"
@@ -132,6 +140,10 @@ wget -O /etc/tuxbox/config/SoftCam.Key https://raw.githubusercontent.com/anow200
 
 echo "====== [22/22] Running Final Clean Script ======"
 run_safe_script "https://raw.githubusercontent.com/anow2008/clean/main/clean.sh"
+
+# تثبيت وتفعيل إعدادات الشبكة التلقائية عند الإقلاع
+echo "====== [Applying Auto Network Fix] ======"
+/etc/init.d/networking restart 2>/dev/null || systemctl restart networking 2>/dev/null
 
 echo "================================================="
 echo "   All tasks completed successfully, anow2008!    "
