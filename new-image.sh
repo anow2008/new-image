@@ -279,7 +279,7 @@ dl "https://gitlab.com/hmeng80/AjPanel/-/raw/main/ajpanel_menu_Haitham.xml?ref_t
 
 step "Installing Ncam & Oscam EMU & Configs & SoftCam"
 run_safe_script "https://raw.githubusercontent.com/biko-73/Ncam_EMU/main/installer.sh"
-run_safe_script "https://raw.githubusercontent.com/anow2008/cam-emu/main/oscam/installer.sh"
+run_safe_script "https://raw.githubusercontent.com/anow2008/cam-emu/main/oscam/3install.sh"
 run_safe_script "https://raw.githubusercontent.com/anow2008/conf/main/install/install.sh"
 mkdir -p /etc/tuxbox/config
 dl "https://raw.githubusercontent.com/anow2008/softcam.key/main/softcam.key" /etc/tuxbox/config/SoftCam.Key
